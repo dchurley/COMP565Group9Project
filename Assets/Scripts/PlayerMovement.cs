@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject playerProjectile;
     void Start()
     {
         
@@ -39,22 +40,31 @@ public class PlayerMovement : MonoBehaviour
 
         GetComponent<Rigidbody2D>().velocity = velocity;
 
-        //else if(Input.GetKeyDown(KeyCode.S))
-        //{
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            //get mouse postion on the screne
+            var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        //} else if(Input.GetKeyDown(KeyCode.D))
-        //{
-        //    GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, speed);
+            //get mouse x and y
+            float mx = mouseWorldPos.x;
+            float my = mouseWorldPos.y;
 
-        //} else if(Input.GetKeyDown(KeyCode.E))
-        //{
-        //    GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, -speed);
+            //get player x and y
+            var playerPos = GetComponent<Rigidbody2D>().position;
 
-        //} else
-        //{
-        //    GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            var angle = new Vector2(mx, my) - playerPos;
+            //normalize so that the dist between player and mouse isnt considered
+            angle.Normalize();
+            angle *= 5;
 
-        //}
+            var go = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
+
+            //set velocity of projectile
+            go.GetComponent<Rigidbody2D>().velocity = angle;
+
+
+
+        }
 
     }
 }
