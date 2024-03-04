@@ -207,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_4
+      name: Prototype_SideIdle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -228,7 +228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_5
+      name: Prototype_SideIdle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -249,7 +249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_6
+      name: Prototype_SideIdle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -270,7 +270,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_7
+      name: Prototype_SideIdle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -291,7 +291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_8
+      name: Prototype_BackIdle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -312,7 +312,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_9
+      name: Prototype_BackIdle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -333,7 +333,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_10
+      name: Prototype_BackIdle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -354,7 +354,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_11
+      name: Prototype_BackIdle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -375,7 +375,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_12
+      name: Prototype_Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -396,7 +396,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_13
+      name: Prototype_Walk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -417,11 +417,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_14
+      name: Prototype_Walk_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 256
+        y: 257
         width: 32
         height: 32
       alignment: 0
@@ -438,7 +438,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_15
+      name: Prototype_Walk_3
       rect:
         serializedVersion: 2
         x: 96
@@ -459,7 +459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_16
+      name: Prototype_SideWalk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -480,7 +480,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_17
+      name: Prototype_SideWalk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -501,7 +501,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_18
+      name: Prototype_SideWalk_2
       rect:
         serializedVersion: 2
         x: 64
@@ -522,7 +522,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_19
+      name: Prototype_SideWalk_3
       rect:
         serializedVersion: 2
         x: 96
@@ -543,7 +543,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_20
+      name: Prototype_BackWalk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -564,7 +564,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_21
+      name: Prototype_BackWalk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -585,7 +585,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_22
+      name: Prototype_BackWalk_2
       rect:
         serializedVersion: 2
         x: 64
@@ -606,7 +606,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Prototype_Worksheet_23
+      name: Prototype_BackWalk_3
       rect:
         serializedVersion: 2
         x: 96
@@ -952,24 +952,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Prototype_BackIdle_0: -1336483428
+      Prototype_BackIdle_1: -1353114800
+      Prototype_BackIdle_2: 972148923
+      Prototype_BackIdle_3: 2043448783
+      Prototype_BackWalk_0: -1705318994
+      Prototype_BackWalk_1: 164320835
+      Prototype_BackWalk_2: -1577172021
+      Prototype_BackWalk_3: 138764917
       Prototype_Idle_0: 778080565
       Prototype_Idle_1: -1869880792
       Prototype_Idle_2: 2032004189
       Prototype_Idle_3: 1631072323
-      Prototype_Worksheet_10: 972148923
-      Prototype_Worksheet_11: 2043448783
-      Prototype_Worksheet_12: -267429081
-      Prototype_Worksheet_13: -193652458
-      Prototype_Worksheet_14: 414173051
-      Prototype_Worksheet_15: 1615807240
-      Prototype_Worksheet_16: 567558931
-      Prototype_Worksheet_17: 1273455253
-      Prototype_Worksheet_18: -483328783
-      Prototype_Worksheet_19: 397793879
-      Prototype_Worksheet_20: -1705318994
-      Prototype_Worksheet_21: 164320835
-      Prototype_Worksheet_22: -1577172021
-      Prototype_Worksheet_23: 138764917
+      Prototype_SideIdle_0: -1784591053
+      Prototype_SideIdle_1: -1783942206
+      Prototype_SideIdle_2: -1485429939
+      Prototype_SideIdle_3: -1548914300
+      Prototype_SideWalk_0: 567558931
+      Prototype_SideWalk_1: 1273455253
+      Prototype_SideWalk_2: -483328783
+      Prototype_SideWalk_3: 397793879
+      Prototype_Walk_0: -267429081
+      Prototype_Walk_1: -193652458
+      Prototype_Walk_2: 414173051
+      Prototype_Walk_3: 1615807240
       Prototype_Worksheet_24: 2120878830
       Prototype_Worksheet_25: 1097755734
       Prototype_Worksheet_26: 1679785355
@@ -985,12 +991,6 @@ TextureImporter:
       Prototype_Worksheet_36: 830148815
       Prototype_Worksheet_37: 1310946677
       Prototype_Worksheet_38: -750094170
-      Prototype_Worksheet_4: -1784591053
-      Prototype_Worksheet_5: -1783942206
-      Prototype_Worksheet_6: -1485429939
-      Prototype_Worksheet_7: -1548914300
-      Prototype_Worksheet_8: -1336483428
-      Prototype_Worksheet_9: -1353114800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

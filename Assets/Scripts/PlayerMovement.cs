@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float speed = 3f;
+    public Animator animator;
+
     // Start is called before the first frame update
     public GameObject playerProjectile;
     void Start()
@@ -14,8 +17,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int speed = 3;
-
         var velocity = new Vector2(0, 0);
 
         if(Input.GetKey(KeyCode.D))
@@ -37,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity += new Vector2(0, -speed);
         }
+
+        animator.SetFloat("Horizontal", velocity.x);
+        animator.SetFloat("Vertical", velocity.y);
+        animator.SetFloat("Speed", velocity.sqrMagnitude);
 
         GetComponent<Rigidbody2D>().velocity = velocity;
 
