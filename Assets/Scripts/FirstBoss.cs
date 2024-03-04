@@ -5,7 +5,7 @@ using UnityEngine;
 public class FirstBossScript : MonoBehaviour
 {
 
-    int health;
+    int health = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +17,18 @@ public class FirstBossScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Projectile"))
+        {
+            health--;
+        }
+
+        if(health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
