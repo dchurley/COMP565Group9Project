@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class FirstBossScript : MonoBehaviour
 {
-
+    int totalHealth = 10;
     int health = 10;
     public Sprite alternate;
     public bool activate;
+    public GameObject bossBar;
     bool attacking;
     float attackTime;
     float totalAttack = 1;
@@ -56,6 +57,7 @@ public class FirstBossScript : MonoBehaviour
         if(other.CompareTag("Projectile"))
         {
             health--;
+            bossBar.GetComponent<BossBar>().scale = (float)health / (float)totalHealth;
         }
 
         if(health == 0)
