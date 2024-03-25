@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.D))
         {
             velocity += new Vector2(speed, 0);
-
         } 
         if (Input.GetKey(KeyCode.A))
         {
@@ -37,6 +36,15 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             velocity += new Vector2(0, -speed);
+        }
+
+        if (velocity.x < 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
         animator.SetFloat("Horizontal", velocity.x);
