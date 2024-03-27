@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class FirstBossScript : MonoBehaviour
 {
-    int totalHealth = 10;
-    int health = 10;
     public Sprite alternate;
     public bool activate;
     public GameObject bossBar;
+    public GameObject projectile;
+
+    int totalHealth = 10;
+    int health = 10;
+
     bool attacking;
     float attackTime;
     float totalAttack = 1;
@@ -49,7 +52,11 @@ public class FirstBossScript : MonoBehaviour
         Sprite tmp = gameObject.GetComponent<SpriteRenderer>().sprite;
         gameObject.GetComponent<SpriteRenderer>().sprite = alternate;
         alternate = tmp;
-        
+
+        var go = GameObject.Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
+        go.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
+
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
