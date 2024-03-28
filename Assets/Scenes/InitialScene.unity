@@ -477,7 +477,7 @@ Transform:
   m_GameObject: {fileID: 161734697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: 4.26, z: 0}
+  m_LocalPosition: {x: -0.23, y: 5, z: 0}
   m_LocalScale: {x: 22.050783, y: 3.574154, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -512,7 +512,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.35
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1459,7 +1459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2030766977038137900, guid: 44f4fa842a3dd7b4695274d1e5c4985a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2030766977038137900, guid: 44f4fa842a3dd7b4695274d1e5c4985a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
