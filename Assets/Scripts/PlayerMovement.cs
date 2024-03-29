@@ -6,9 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 3f;
     public Animator animator;
-
-    // Start is called before the first frame update
     public GameObject playerProjectile;
+
     void Start()
     {
         

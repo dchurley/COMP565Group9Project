@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -108,7 +108,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: grounds0001_0
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 1385
+        width: 1170
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865eca28bcc06bd41b379d4ffb58a6b7
+      internalID: 134280993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grounds0001_1
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 560
+        width: 854
+        height: 421
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f4f83747a6164418dd65e03a5c8546
+      internalID: 696229918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grounds0001_2
+      rect:
+        serializedVersion: 2
+        x: 1238
+        y: 683
+        width: 684
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6ad69bd5ec92d4b8586ea830be3921
+      internalID: -2008096090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grounds0001_3
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 134
+        width: 302
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17d415369b8e3c54ca62959bb7dfa049
+      internalID: 577489475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grounds0001_4
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 134
+        width: 302
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ca5f6958607df45bdb23702b5792d9
+      internalID: 1944977393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grounds0001_5
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 134
+        width: 302
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a3119206b076247bd28173400c7c7c
+      internalID: -1795049901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +245,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      grounds0001_0: 134280993
+      grounds0001_1: 696229918
+      grounds0001_2: -2008096090
+      grounds0001_3: 577489475
+      grounds0001_4: 1944977393
+      grounds0001_5: -1795049901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

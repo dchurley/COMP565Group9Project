@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1237174823372263936}
   m_Layer: 0
   m_Name: FirstBossProjectile
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
