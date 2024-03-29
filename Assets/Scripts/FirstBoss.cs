@@ -8,6 +8,10 @@ public class FirstBossScript : MonoBehaviour
     public bool activate;
     public GameObject bossBar;
     public GameObject projectile;
+    public GameObject winScreen;
+    public GameObject player;
+    public GameObject hudBar;
+    public GameObject music;
 
     int totalHealth = 10;
     int health = 10;
@@ -19,7 +23,7 @@ public class FirstBossScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        winScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,6 +74,17 @@ public class FirstBossScript : MonoBehaviour
         if(health == 0)
         {
             Destroy(gameObject);
+            EndLevel();
         }
+    }
+
+    void EndLevel()
+    {
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<mainBehavior>().enabled = false;
+        music.GetComponent<GameAudioManager>().PlayWinMusic();
+        bossBar.SetActive(false);
+        hudBar.SetActive(false);
+        winScreen.SetActive(true);
     }
 }
