@@ -168,7 +168,6 @@ GameObject:
   - component: {fileID: 143267024}
   - component: {fileID: 143267026}
   - component: {fileID: 143267025}
-  - component: {fileID: 143267030}
   - component: {fileID: 143267027}
   - component: {fileID: 143267028}
   - component: {fileID: 143267029}
@@ -354,20 +353,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13219923, y: 0.15902808}
   m_EdgeRadius: 0
---- !u!114 &143267030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143267023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3846b940d733a2b4e873f7a50410d974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverScreen: {fileID: 1466779020}
-  animator: {fileID: 143267028}
 --- !u!1 &161734697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,7 +1599,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143267030}
+      - m_Target: {fileID: 1209516603}
         m_TargetAssemblyTypeName: mainBehavior, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
@@ -1853,6 +1838,7 @@ GameObject:
   - component: {fileID: 1209516602}
   - component: {fileID: 1209516601}
   - component: {fileID: 1209516600}
+  - component: {fileID: 1209516603}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1910,6 +1896,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1209516603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209516599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3846b940d733a2b4e873f7a50410d974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 143267028}
+  gameOverScreen: {fileID: 1466779020}
+  winScreen: {fileID: 1394926419}
+  player: {fileID: 143267023}
+  bossBar: {fileID: 903824338}
+  hudBar: {fileID: 161734697}
+  music: {fileID: 1207076000}
 --- !u!1 &1251712539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,7 +2020,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143267030}
+      - m_Target: {fileID: 1209516603}
         m_TargetAssemblyTypeName: mainBehavior, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -2078,7 +2083,7 @@ GameObject:
   - component: {fileID: 1394926421}
   - component: {fileID: 1394926420}
   m_Layer: 5
-  m_Name: WinOver (Canvas)
+  m_Name: WinGame (Canvas)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2587,7 +2592,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143267030}
+      - m_Target: {fileID: 1209516603}
         m_TargetAssemblyTypeName: mainBehavior, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1

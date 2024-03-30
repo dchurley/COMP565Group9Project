@@ -73,10 +73,20 @@ public class PlayerMovement : MonoBehaviour
 
             //set velocity of projectile
             go.GetComponent<Rigidbody2D>().velocity = angle;
-
-
-
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.tag == "Targetable" || other.transform.tag == "EnemyProjectile")
+        {
+            FindObjectOfType<mainBehavior>().EndGame();
+        }
+    }
+
+    public void Die()
+    {
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
 }

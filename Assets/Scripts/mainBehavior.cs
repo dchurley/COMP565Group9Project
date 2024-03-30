@@ -5,13 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class mainBehavior : MonoBehaviour
 {
-    public GameObject gameOverScreen;
     public Animator animator;
+    public GameObject gameOverScreen;
+    public GameObject winScreen;
+    public GameObject player;
+    public GameObject bossBar;
+    public GameObject hudBar;
+    public GameObject music;
 
     // Start is called before the first frame update
     void Start()
     {
         gameOverScreen.SetActive(false);
+        winScreen.SetActive(false);
     }
 
     void Update()
@@ -24,24 +30,28 @@ public class mainBehavior : MonoBehaviour
     }
 
     // when player is hit, check other object type and if deals damage end game
-    private void OnCollisionEnter2D(Collision2D other)
+   
+
+    public void WinLevel()
     {
-        if (other.transform.tag == "Targetable" || other.transform.tag == "EnemyProjectile")
-        {
-            EndGame();
-        }
+        music.GetComponent<GameAudioManager>().PlayWinMusic();
+        player.SetActive(false);
+        bossBar.SetActive(false);
+        hudBar.SetActive(false);
+        winScreen.SetActive(true);
     }
 
     // kills player movement and plays death animation
-    void EndGame()
+    public void EndGame()
     {
-        GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<PlayerMovement>().Die();
+        player.GetComponent<PlayerMovement>().enabled = false;
         animator.SetBool("isDead", true);
         gameOverScreen.SetActive(true);
     }
 
     // resets the active scene, player can try again
-    public void RestartGame()
+    public void RestartGame() 
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
