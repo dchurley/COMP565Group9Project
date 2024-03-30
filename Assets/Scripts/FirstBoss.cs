@@ -20,6 +20,20 @@ public class FirstBossScript : MonoBehaviour
     float attackTime;
     float totalAttack = 1;
 
+    float phase;
+
+    float getNextXPos(float delta)
+    {
+        float twopi = 2.0f * Mathf.PI;
+        phase += delta;
+        if(phase > twopi)
+        {
+            phase -= twopi;
+        }
+        float pos = Mathf.Sin(phase) * 7.0f;
+        return pos;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +43,13 @@ public class FirstBossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float delta = Time.deltaTime;
+        float x = getNextXPos(delta);
+
+        var pos = gameObject.transform.position;
+        pos.x = x;
+        gameObject.transform.position = pos;
+
         if (activate)
         {
             shoot();
@@ -57,8 +78,17 @@ public class FirstBossScript : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = alternate;
         alternate = tmp;
 
-        var go = GameObject.Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
-        go.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
+
+
+        for(int i = -1; i <= 1; i++)
+        {
+            for(int j = -1; j <= 1; j++)
+            {
+                if(i == 0 && j == 0) { continue; }
+                var go = GameObject.Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
+                go.GetComponent<Rigidbody2D>().velocity = new Vector2(i * 3, j * 3);
+            }
+        }
 
 
     }
