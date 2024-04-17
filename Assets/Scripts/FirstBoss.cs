@@ -8,10 +8,10 @@ public class FirstBossScript : MonoBehaviour
     public bool activate;
     public GameObject bossBar;
     public GameObject projectile;
-    public float coolDownTime = 2;
-    public float attackTime = 1;
+    public float coolDownTime = 2.0f;
+    public float attackTime = 1.0f;
     public int maxHealth = 10;
-    public float projectileSpeed = 3;
+    public float projectileSpeed = 3.0f;
 
     int health;
     bool attacking;

@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public GameObject playerProjectile;
 
+    public float coolDownTime = 0.3f;
+    float coolDownTimer;
+
     void Start()
     {
         
@@ -52,35 +55,51 @@ public class PlayerMovement : MonoBehaviour
 
         GetComponent<Rigidbody2D>().velocity = velocity;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        float delta = Time.deltaTime;
+        if(coolDownTimer < coolDownTime)
         {
-            //get mouse postion on the screne
-            var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            //get mouse x and y
-            float mx = mouseWorldPos.x;
-            float my = mouseWorldPos.y;
-
-            //get player x and y
-            var playerPos = GetComponent<Rigidbody2D>().position;
-
-            var angle = new Vector2(mx, my) - playerPos;
-            //normalize so that the dist between player and mouse isnt considered
-            angle.Normalize();
-            angle *= 5;
-
-            var go = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
-
-            //set velocity of projectile
-            go.GetComponent<Rigidbody2D>().velocity = angle;
+            coolDownTimer += delta;
         }
 
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            if(coolDownTimer >= coolDownTime)
+            {
+                shoot();
+            }
+        }
+
+    }
+
+    private void shoot()
+    {
+        coolDownTimer = 0;
+        //get mouse postion on the screne
+        var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        //get mouse x and y
+        float mx = mouseWorldPos.x;
+        float my = mouseWorldPos.y;
+
+        //get player x and y
+        var playerPos = GetComponent<Rigidbody2D>().position;
+
+        var angle = new Vector2(mx, my) - playerPos;
+        //normalize so that the dist between player and mouse isnt considered
+        angle.Normalize();
+        angle *= 5;
+
+        var go = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
+
+        //set velocity of projectile
+        go.GetComponent<Rigidbody2D>().velocity = angle;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.tag == "Targetable" || other.transform.tag == "EnemyProjectile")
         {
+            //TODO hit one life not end game
             FindObjectOfType<mainBehavior>().EndGame();
         }
     }
