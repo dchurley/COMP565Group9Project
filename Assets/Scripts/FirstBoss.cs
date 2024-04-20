@@ -17,17 +17,30 @@ public class FirstBossScript : MonoBehaviour
     bool attacking;
     float attackTimer;
     float coolDownTimer;
-    float phase;
+    float phaseX;
+    float phaseY;
 
     float getNextXPos(float delta)
     {
         float twopi = 2.0f * Mathf.PI;
-        phase += delta;
-        if(phase > twopi)
+        phaseX += delta;
+        if(phaseX > twopi)
         {
-            phase -= twopi;
+            phaseX -= twopi;
         }
-        float pos = Mathf.Sin(phase) * 7.0f;
+        float pos = Mathf.Sin(phaseX) * 7.0f;
+        return pos;
+    }
+
+    float getNextYPos(float delta)
+    {
+        float twopi = 2.0f * Mathf.PI;
+        phaseY += delta * 0.5f;
+        if (phaseY > twopi)
+        {
+            phaseY -= twopi;
+        }
+        float pos = Mathf.Sin(phaseY) * 2.0f;
         return pos;
     }
 
@@ -44,8 +57,10 @@ public class FirstBossScript : MonoBehaviour
         float delta = Time.deltaTime;
         //move the boss the amount for this frame
         float x = getNextXPos(delta);
+        float y = getNextYPos(delta);
         var pos = gameObject.transform.position;
         pos.x = x;
+        pos.y = y;
         gameObject.transform.position = pos;
 
         //advance the cooldown timer and check it for shooting
