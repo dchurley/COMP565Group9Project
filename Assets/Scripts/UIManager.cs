@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class UIManager : MonoBehaviour
@@ -23,9 +24,17 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void NewGame()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        DataPersistenceManager.instance.NewGame();
+        SceneManager.LoadSceneAsync("Level1");
+
+        // SceneManager.LoadScene(sceneToLoad);
+    }
+
+    public void ContinueGame()
+    {
+        SceneManager.LoadSceneAsync("Level1");
     }
 
     public void QuitGame()
