@@ -7,6 +7,7 @@ public class ShopTrigger : MonoBehaviour
     public GameObject enterIcon;
     public Animator animator;
     private SpriteRenderer spriteR;
+    public GameObject shopScreen;
 
     [SerializeField] private bool triggerActive = false;
 
@@ -16,6 +17,7 @@ public class ShopTrigger : MonoBehaviour
         spriteR = enterIcon.GetComponent<SpriteRenderer>();
         spriteR.color = new Color(1f, 1f, 1f, 0f);
         enterIcon.SetActive(false);
+        shopScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,7 +25,8 @@ public class ShopTrigger : MonoBehaviour
     {
         if (triggerActive && Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Save Menu Open");
+            Debug.Log("Shop Menu Open");
+            shopScreen.SetActive(true);
         }
     }
 
