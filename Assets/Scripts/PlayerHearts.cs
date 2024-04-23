@@ -8,7 +8,7 @@ public class PlayerHearts : MonoBehaviour
     public int hearts = 3;
     public Sprite empty;
 
-    void takeDamage()
+    public void takeDamage()
     {
         if(hearts == 3)
         {
@@ -37,9 +37,5 @@ public class PlayerHearts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            takeDamage();
-        }
     }
 }

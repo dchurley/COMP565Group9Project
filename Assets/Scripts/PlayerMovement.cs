@@ -7,9 +7,13 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 3f;
     public Animator animator;
     public GameObject playerProjectile;
+    public GameObject health;
 
     public float coolDownTime = 0.3f;
     float coolDownTimer;
+
+    public float invulnTime = 1.0f;
+    float invulnTimer;
 
     void Start()
     {
@@ -60,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
         {
             coolDownTimer += delta;
         }
+        if(invulnTimer < invulnTime)
+        {
+            invulnTimer += delta;
+        }
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -95,11 +103,36 @@ public class PlayerMovement : MonoBehaviour
         go.GetComponent<Rigidbody2D>().velocity = angle;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Targetable") || other.CompareTag("EnemyProjectile"))
+        {
+            if (invulnTimer >= invulnTime)
+            {
+                takeDamage();
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.tag == "Targetable" || other.transform.tag == "EnemyProjectile")
+        if (other.transform.tag.Equals("Targetable") || other.transform.tag.Equals("EnemyProjectile"))
         {
-            //TODO hit one life not end game
+            if(invulnTimer >= invulnTime)
+            {
+                takeDamage();
+            }
+        }
+    }
+
+    public void takeDamage()
+    {
+        invulnTimer = 0;
+        var ph = health.GetComponent<PlayerHearts>();
+        ph.takeDamage();
+
+        if(ph.hearts == 0)
+        {
             FindObjectOfType<mainBehavior>().EndGame();
         }
     }
@@ -107,5 +140,6 @@ public class PlayerMovement : MonoBehaviour
     public void Die()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        
     }
 }
