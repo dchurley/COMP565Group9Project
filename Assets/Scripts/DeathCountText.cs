@@ -12,7 +12,7 @@ public class DeathCountText : MonoBehaviour, IDataPersistence
 
     private void Awake()
     {
-        deathCountText = this.GetComponent<TextMeshProUGUI>();
+        deathCountText = this.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void LoadData(GameData data)
@@ -35,14 +35,14 @@ public class DeathCountText : MonoBehaviour, IDataPersistence
     //    GameEventsManager.instance.onPlayerDeath -= OnPlayerDeath;
     }
 
-    private void OnPlayerDeath()
+    public void OnPlayerDeath()
     {
         deathCount++;
     }
 
     private void Update()
     {
-        deathCountText.text = "" + deathCount;
+        deathCountText.text = "Deaths: " + deathCount;
     }
 
 }

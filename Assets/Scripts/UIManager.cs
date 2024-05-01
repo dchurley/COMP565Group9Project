@@ -27,14 +27,14 @@ public class UIManager : MonoBehaviour
     public void NewGame()
     {
         DataPersistenceManager.instance.NewGame();
-        SceneManager.LoadSceneAsync("Level1");
+        SceneManager.LoadSceneAsync(sceneToLoad);
 
         // SceneManager.LoadScene(sceneToLoad);
     }
 
     public void ContinueGame()
     {
-        SceneManager.LoadSceneAsync("Level1");
+        SceneManager.LoadSceneAsync(sceneToLoad);
     }
 
     public void QuitGame()

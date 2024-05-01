@@ -33,7 +33,7 @@ public class SaveSlot : MonoBehaviour
             noDataContent.SetActive(false);
             hasDataContent.SetActive(true);
 
-            percentageCompleteText.text = data.GetPercentageComplete() + "% COMPLETE";
+            //percentageCompleteText.text = data.GetPercentageComplete() + "% COMPLETE";
             deathCountText.text = "DEATH COUNT: " + data.deathCount;
 
         }

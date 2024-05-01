@@ -12,6 +12,7 @@ public class mainBehavior : MonoBehaviour
     public GameObject bossBar;
     public GameObject hudBar;
     public GameObject music;
+    public GameObject deathText;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,7 @@ public class mainBehavior : MonoBehaviour
     // kills player movement and plays death animation
     public void EndGame()
     {
+        deathText.GetComponent<DeathCountText>().OnPlayerDeath();
         player.GetComponent<PlayerMovement>().Die();
         player.GetComponent<PlayerMovement>().enabled = false;
         animator.SetBool("isDead", true);

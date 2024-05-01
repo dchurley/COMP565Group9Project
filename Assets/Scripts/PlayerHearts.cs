@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHearts : MonoBehaviour
 {
@@ -12,15 +13,15 @@ public class PlayerHearts : MonoBehaviour
     {
         if(hearts == 3)
         {
-            transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = empty;
+            transform.GetChild(2).GetComponent<Image>().sprite = empty;
         }
         if (hearts == 2)
         {
-            transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = empty;
+            transform.GetChild(1).GetComponent<Image>().sprite = empty;
         }
         if (hearts == 1)
         {
-            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = empty;
+            transform.GetChild(0).GetComponent<Image>().sprite = empty;
         }
 
 

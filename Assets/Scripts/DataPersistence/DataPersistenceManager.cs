@@ -68,7 +68,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void NewGame()
     {
-        this.gameData = new GameData(); 
+        this.gameData = ScriptableObject.CreateInstance<GameData>(); 
     }
 
     public void LoadGame()
@@ -120,6 +120,11 @@ public class DataPersistenceManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveGame();
+    }
+
+    public void SetProfileID(string num)
+    {
+        selectedProfileId = num;
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
