@@ -10,15 +10,35 @@ public class ShopHandler : MonoBehaviour
     public Button gun2;
     public Button gun3;
     public Button gun4;
+    
+    private int[] costs;
 
-    private int currency = 150;
+    private int currency;
+    private int equipped;
     
     // Start is called before the first frame update
     void Start()
     {
+        currency = 150;
+        equipped = 0;
+    }
+
+    void InitShop()
+    {
+        costs[1] = 150;
+        costs[2] = 500;
+        costs[3] = 1000;
+
         gun1.interactable = false;
         gun1.GetComponentInChildren<Text>().text = "USING";
-         
+        
+        for (int i = 0; i < 4; i++)
+        {
+            if (true)
+            {
+                
+            }
+        }
 
         if (currency < 150)
         {
@@ -35,12 +55,15 @@ public class ShopHandler : MonoBehaviour
             gun4.interactable = false;
             gun4.GetComponentInChildren<Text>().text = "X";
         }
-
     }
-
-    // Update is called once per frame
+    
     void BuyItem()
     {
         
+    }
+
+    void EquipItem()
+    {
+
     }
 }
