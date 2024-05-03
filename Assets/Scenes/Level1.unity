@@ -3051,7 +3051,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 871226022}
         m_TargetAssemblyTypeName: mainBehavior, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: LoadShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

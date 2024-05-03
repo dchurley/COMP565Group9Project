@@ -12,4 +12,5 @@ public class GameData : ScriptableObject
     public bool hasShotgun;
     public bool hasSMG;
     public bool hasRifle;
+    public int equippedWeapon;
 }

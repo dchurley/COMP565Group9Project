@@ -54,7 +54,6 @@ public class FileDataHandler
     public void Save(GameData data, string profileId)
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
-        /*
            try
            {
                Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -76,8 +75,6 @@ public class FileDataHandler
            {
                Debug.LogError("Error occured when trying to save data to file:" + fullPath + "\n");
            }
-       }
-        */
     }
 
     public Dictionary<string, GameData> LoadAllProfiles()

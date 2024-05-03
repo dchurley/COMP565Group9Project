@@ -63,4 +63,9 @@ public class mainBehavior : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void LoadShop()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
