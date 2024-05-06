@@ -23,7 +23,7 @@ public class SaveSlot : MonoBehaviour
 
     public void SetData(GameData data)
     {
-        if (data == null)
+        if (data.furthestLevel == 0 && data.deathCount == 0)
         {
             noDataContent.SetActive(true);
             hasDataContent.SetActive(false);
@@ -33,7 +33,7 @@ public class SaveSlot : MonoBehaviour
             noDataContent.SetActive(false);
             hasDataContent.SetActive(true);
 
-            //percentageCompleteText.text = data.GetPercentageComplete() + "% COMPLETE";
+            percentageCompleteText.text = data.furthestLevel + "/3 LEVELS COMPLETE";
             deathCountText.text = "DEATH COUNT: " + data.deathCount;
 
         }

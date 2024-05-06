@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ using UnityEngine.Audio;
 public class UIManager : MonoBehaviour
 {
     public string sceneToLoad;
-
+    public Transform saveSlots;
     public AudioMixer audioMixer;
 
 
@@ -46,5 +47,21 @@ public class UIManager : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
+    }
+
+    public void InitSaveSlots()
+    {
+        Dictionary<string, GameData> saves = DataPersistenceManager.instance.GetAllProfilesGameData();
+        for (int i = 0; i < 3; i++)
+        {
+            saveSlots.GetChild(i).GetComponent<SaveSlot>().SetData(saves[i.ToString()]);
+        }
+    }
+
+    public void PlaySlot()
+    {
+        DataPersistenceManager.instance.LoadGame();
+        int levelToLoad = DataPersistenceManager.instance.CurrentLevel();
+        SceneManager.LoadScene(levelToLoad+1);
     }
 }

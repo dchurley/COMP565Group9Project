@@ -53,8 +53,7 @@ public class FileDataHandler
 
     public void Save(GameData data, string profileId)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
-        /*
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
            try
            {
                Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -76,12 +75,12 @@ public class FileDataHandler
            {
                Debug.LogError("Error occured when trying to save data to file:" + fullPath + "\n");
            }
-       }
-        */
     }
 
     public Dictionary<string, GameData> LoadAllProfiles()
     {
+        InitProfiles();
+
         Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();
 
         IEnumerable<DirectoryInfo> dirInfos = new DirectoryInfo(dataDirPath).EnumerateDirectories();
@@ -95,6 +94,8 @@ public class FileDataHandler
             if (!File.Exists(fullPath))
             {
                 Debug.LogWarning("Skipping directory when loading all profiles because it does not contain data: " + profileId);
+                GameData newData = new GameData();
+                profileDictionary.Add(profileId, newData);
                 continue;
             }
 
@@ -111,6 +112,25 @@ public class FileDataHandler
 
         }
         return profileDictionary;
+    }
+
+    public void InitProfiles()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            string directoryPath = Path.Combine(dataDirPath, i.ToString());
+
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+                Debug.Log("Directory created at: " + directoryPath);
+            }
+            else
+            {
+                Debug.Log("Directory exists at: " + directoryPath);
+            }
+
+        }
     }
 
 }

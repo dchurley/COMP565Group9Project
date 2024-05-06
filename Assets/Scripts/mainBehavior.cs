@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class mainBehavior : MonoBehaviour
+public class mainBehavior : MonoBehaviour, IDataPersistence
 {
     public Animator animator;
     public GameObject gameOverScreen;
@@ -13,6 +13,9 @@ public class mainBehavior : MonoBehaviour
     public GameObject hudBar;
     public GameObject music;
     public GameObject deathText;
+    public int winCoins;
+
+    private int playerCoins;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,11 @@ public class mainBehavior : MonoBehaviour
         {
             EndGame();
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            WinLevel();
+        }
     }
 
     // when player is hit, check other object type and if deals damage end game
@@ -36,6 +44,7 @@ public class mainBehavior : MonoBehaviour
     public void WinLevel()
     {
         music.GetComponent<GameAudioManager>().PlayWinMusic();
+        AddCoin(winCoins);
         player.SetActive(false);
         bossBar.SetActive(false);
         hudBar.SetActive(false);
@@ -62,5 +71,25 @@ public class mainBehavior : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void LoadShop()
+    {
+        SceneManager.LoadScene("Shop");
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.playerCoins = data.currency;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.currency = this.playerCoins;
+    }
+
+    public void AddCoin(int num)
+    {
+        playerCoins = num;
     }
 }
