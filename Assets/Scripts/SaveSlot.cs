@@ -23,7 +23,7 @@ public class SaveSlot : MonoBehaviour
 
     public void SetData(GameData data)
     {
-        if (data == null)
+        if (data.furthestLevel == 0 && data.deathCount == 0)
         {
             noDataContent.SetActive(true);
             hasDataContent.SetActive(false);

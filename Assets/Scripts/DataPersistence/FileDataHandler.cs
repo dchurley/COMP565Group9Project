@@ -53,7 +53,7 @@ public class FileDataHandler
 
     public void Save(GameData data, string profileId)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
            try
            {
                Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -92,6 +92,8 @@ public class FileDataHandler
             if (!File.Exists(fullPath))
             {
                 Debug.LogWarning("Skipping directory when loading all profiles because it does not contain data: " + profileId);
+                GameData newData = new GameData();
+                profileDictionary.Add(profileId, newData);
                 continue;
             }
 

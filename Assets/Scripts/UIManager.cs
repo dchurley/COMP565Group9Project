@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,6 @@ public class UIManager : MonoBehaviour
 {
     public string sceneToLoad;
     public Transform saveSlots;
-
     public AudioMixer audioMixer;
 
 
@@ -56,5 +56,12 @@ public class UIManager : MonoBehaviour
         {
             saveSlots.GetChild(i).GetComponent<SaveSlot>().SetData(saves[i.ToString()]);
         }
+    }
+
+    public void PlaySlot()
+    {
+        DataPersistenceManager.instance.LoadGame();
+        int levelToLoad = DataPersistenceManager.instance.CurrentLevel();
+        SceneManager.LoadScene(levelToLoad+1);
     }
 }

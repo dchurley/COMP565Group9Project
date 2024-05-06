@@ -21,7 +21,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private FileDataHandler dataHandler;
 
-    private string selectedProfileId = "test";
+    private string selectedProfileId = "0";
 
 
 
@@ -35,9 +35,12 @@ public class DataPersistenceManager : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-        instance = this;
-
-        DontDestroyOnLoad(this.gameObject);
+        
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
 
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
@@ -68,7 +71,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void NewGame()
     {
-        this.gameData = ScriptableObject.CreateInstance<GameData>(); 
+        this.gameData = new GameData(); 
     }
 
     public void LoadGame()
@@ -94,8 +97,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
-
-        Debug.Log("Loaded death count = " + gameData.deathCount);
     }
 
     public void SaveGame()
@@ -111,7 +112,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.SaveData(ref gameData);
         }
-        Debug.Log("Saved death count = " + gameData.deathCount);
 
         // Save data to file
         dataHandler.Save(gameData, selectedProfileId);
@@ -138,5 +138,10 @@ public class DataPersistenceManager : MonoBehaviour
     public Dictionary<string, GameData> GetAllProfilesGameData()
     {
         return dataHandler.LoadAllProfiles();
+    }
+
+    public int CurrentLevel()
+    {
+        return gameData.furthestLevel;
     }
 }

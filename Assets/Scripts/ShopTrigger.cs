@@ -11,13 +11,14 @@ public class ShopTrigger : MonoBehaviour
 
     [SerializeField] private bool triggerActive = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
         spriteR = enterIcon.GetComponent<SpriteRenderer>();
         spriteR.color = new Color(1f, 1f, 1f, 0f);
         enterIcon.SetActive(false);
-        shopScreen.SetActive(false);
+        
     }
 
     // Update is called once per frame
