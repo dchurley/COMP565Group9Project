@@ -79,6 +79,8 @@ public class FileDataHandler
 
     public Dictionary<string, GameData> LoadAllProfiles()
     {
+        InitProfiles();
+
         Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();
 
         IEnumerable<DirectoryInfo> dirInfos = new DirectoryInfo(dataDirPath).EnumerateDirectories();
@@ -110,6 +112,25 @@ public class FileDataHandler
 
         }
         return profileDictionary;
+    }
+
+    public void InitProfiles()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            string directoryPath = Path.Combine(dataDirPath, i.ToString());
+
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+                Debug.Log("Directory created at: " + directoryPath);
+            }
+            else
+            {
+                Debug.Log("Directory exists at: " + directoryPath);
+            }
+
+        }
     }
 
 }
