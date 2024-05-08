@@ -9,7 +9,7 @@ public class LevelHandler : MonoBehaviour, IDataPersistence
 {
     public GameObject thisThing;
     public Transform levelSlots;
-    private int furthestL;
+    private bool[] unlockedLevels;
     private bool loaded;
     private bool lockD;
     // Start is called before the first frame update
@@ -31,7 +31,7 @@ public class LevelHandler : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData gameData)
     {
-        furthestL = gameData.furthestLevel + 1;
+        unlockedLevels = gameData.levels;
         loaded = true;
     }
 
@@ -44,7 +44,7 @@ public class LevelHandler : MonoBehaviour, IDataPersistence
     {
         for (int i = 0; i < 3; i++)
         {
-            if (furthestL < i)
+            if (!unlockedLevels[i])
             {
                 levelSlots.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = "LOCKED";
                 levelSlots.GetChild(i).GetComponent<Button>().interactable = false;

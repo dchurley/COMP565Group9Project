@@ -11,7 +11,6 @@ public class ShopTrigger : MonoBehaviour
 
     [SerializeField] private bool triggerActive = false;
 
-
     // Start is called before the first frame update
     void Start()
     {

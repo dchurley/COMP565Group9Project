@@ -13,6 +13,7 @@ public class GameData
     public bool hasSMG;
     public bool hasRifle;
     public int equippedWeapon;
+    public bool[] levels;
 
     public GameData()
     {
@@ -24,18 +25,7 @@ public class GameData
         hasSMG = false;
         hasRifle = false;
         equippedWeapon = 0;
-    }
-
-    public GameData(int deathC, int furthestL, int currncy, bool hasPl, bool hasSn, bool hasSG, bool hasRfl, int equippedW)
-    {
-        deathCount = deathC;
-        furthestLevel = furthestL;
-        currency = currncy;
-        hasPistol = hasPl;
-        hasShotgun = hasSn;
-        hasSMG = hasSG;
-        hasRifle = hasRfl;
-        equippedWeapon = equippedW;
+        levels = new bool[3];
     }
 }
 

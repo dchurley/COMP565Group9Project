@@ -19,6 +19,8 @@ public class SaveSlot : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI deathCountText;
 
+    [SerializeField] private GameObject trashIcon;
+
 
 
     public void SetData(GameData data)
@@ -27,11 +29,13 @@ public class SaveSlot : MonoBehaviour
         {
             noDataContent.SetActive(true);
             hasDataContent.SetActive(false);
+            trashIcon.SetActive(false);
         }
         else
         {
             noDataContent.SetActive(false);
             hasDataContent.SetActive(true);
+            trashIcon.SetActive(true);
 
             percentageCompleteText.text = data.furthestLevel + "/3 LEVELS COMPLETE";
             deathCountText.text = "DEATH COUNT: " + data.deathCount;
@@ -46,6 +50,17 @@ public class SaveSlot : MonoBehaviour
         return this.profileId;
     }
 
+    public void DeleteSave()
+    {
+        DataPersistenceManager.instance.NewGame();
+        DataPersistenceManager.instance.SaveGame();
+        noDataContent.SetActive(true);
+        hasDataContent.SetActive(false);
+        trashIcon.SetActive(false);
+    }
 
-
+    public void SetProfileId()
+    {
+        DataPersistenceManager.instance.SetProfileID(profileId);
+    }
 }

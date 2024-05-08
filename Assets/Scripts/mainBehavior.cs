@@ -14,8 +14,11 @@ public class mainBehavior : MonoBehaviour, IDataPersistence
     public GameObject music;
     public GameObject deathText;
     public int winCoins;
+    public int levelNum;
 
     private int playerCoins;
+    private bool[] unlockedLevels;
+    private int furthestL;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +48,11 @@ public class mainBehavior : MonoBehaviour, IDataPersistence
     {
         music.GetComponent<GameAudioManager>().PlayWinMusic();
         AddCoin(winCoins);
+        unlockedLevels[levelNum] = true;
+        if (furthestL <= levelNum)
+        {
+            furthestL++;
+        }
         player.SetActive(false);
         bossBar.SetActive(false);
         hudBar.SetActive(false);
@@ -75,17 +83,22 @@ public class mainBehavior : MonoBehaviour, IDataPersistence
 
     public void LoadShop()
     {
+        
         SceneManager.LoadScene("Shop");
     }
 
     public void LoadData(GameData data)
     {
+        this.furthestL = data.furthestLevel;
         this.playerCoins = data.currency;
+        this.unlockedLevels = data.levels;
     }
 
     public void SaveData(ref GameData data)
     {
         data.currency = this.playerCoins;
+        data.levels = this.unlockedLevels;
+        data.furthestLevel = this.furthestL;
     }
 
     public void AddCoin(int num)

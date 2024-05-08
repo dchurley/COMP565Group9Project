@@ -7,6 +7,7 @@ public class SaveTrigger : MonoBehaviour
     public GameObject enterIcon;
     public Animator animator;
     private SpriteRenderer spriteR;
+    public GameObject loadScreen;
 
     [SerializeField] private bool triggerActive = false;
 
@@ -24,6 +25,7 @@ public class SaveTrigger : MonoBehaviour
         if (triggerActive && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Save Menu Open");
+            loadScreen.SetActive(true);
         }
     }
 

@@ -45,7 +45,7 @@ public class ShopHandler : MonoBehaviour, IDataPersistence
     {
         currency = gameData.currency;
         equipped = gameData.equippedWeapon;
-        nextLevel = gameData.furthestLevel + 2;
+        nextLevel = gameData.furthestLevel + 1;
         unlocks = new bool[4];
         unlocks[0] = gameData.hasPistol;
         unlocks[1] = gameData.hasShotgun;
@@ -68,7 +68,6 @@ public class ShopHandler : MonoBehaviour, IDataPersistence
         gameData.hasShotgun = unlocks[1];
         gameData.hasSMG = unlocks[2];
         gameData.hasRifle = unlocks[3];
-        gameData.furthestLevel = nextLevel - 1;
     }
 
     public void InitShop()
