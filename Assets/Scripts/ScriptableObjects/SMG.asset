@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97d07fb4f397cb4abc6f95c48684c2d, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: 
-  weaponID: 
+  weaponID: 2
   cost: 500
   damage: 2
   unlocked: 0
+  cooldown: 0

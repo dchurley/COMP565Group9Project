@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(coolDownTimer >= coolDownTime)
             {
-                shoot();
+                //shoot();
             }
         }
 

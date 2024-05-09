@@ -9,5 +9,6 @@ public class Weapon : ScriptableObject
     public int cost;
     public int damage;
     public bool unlocked;
+    public float cooldown;
 
 }

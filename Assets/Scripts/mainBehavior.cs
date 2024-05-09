@@ -19,6 +19,7 @@ public class mainBehavior : MonoBehaviour, IDataPersistence
     private int playerCoins;
     private bool[] unlockedLevels;
     private int furthestL;
+    private int weaponEquip;
 
     // Start is called before the first frame update
     void Start()
@@ -92,6 +93,7 @@ public class mainBehavior : MonoBehaviour, IDataPersistence
         this.furthestL = data.furthestLevel;
         this.playerCoins = data.currency;
         this.unlockedLevels = data.levels;
+        this.weaponEquip = data.equippedWeapon;
     }
 
     public void SaveData(ref GameData data)
@@ -104,5 +106,10 @@ public class mainBehavior : MonoBehaviour, IDataPersistence
     public void AddCoin(int num)
     {
         playerCoins = num;
+    }
+
+    public int SetWeapon()
+    {
+        return weaponEquip;
     }
 }
