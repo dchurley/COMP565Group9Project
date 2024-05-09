@@ -12,6 +12,7 @@ public class FirstBossScript : MonoBehaviour
     public float attackTime = 1.0f;
     public int maxHealth = 10;
     public float projectileSpeed = 3.0f;
+    public int projectileCount = 7;
 
     int health;
     bool attacking;
@@ -101,16 +102,27 @@ public class FirstBossScript : MonoBehaviour
         alternate = tmp;
 
 
+
+        //get mouse postion on the screne
+        var bossPos = gameObject.transform.position;
+
+
         //for every i and j combo of -1, 0, 1
         //produce a projectile on the axis (not including 0, 0)
-        for(int i = -1; i <= 1; i++)
+        for (int i = 0; i < projectileCount; i++)
         {
-            for(int j = -1; j <= 1; j++)
-            {
-                if(i == 0 && j == 0) { continue; }
-                var go = GameObject.Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
-                go.GetComponent<Rigidbody2D>().velocity = new Vector2(i * projectileSpeed, j * projectileSpeed);
-            }
+            //get the ith child (marker object)
+            //get the position
+            var marker = gameObject.transform.GetChild(i).position;
+            //calculate the angle between the marker object and the center of the boss
+            var angle = new Vector2(bossPos.x, bossPos.y) - new Vector2(marker.x, marker.y);
+            //normalize and multiply (set the standard velocity)
+            angle.Normalize();
+            angle *= projectileSpeed;
+            //create the new projectile and set it's velocity
+            var go = GameObject.Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
+            go.GetComponent<Rigidbody2D>().velocity = angle;
+            
         }
 
 
