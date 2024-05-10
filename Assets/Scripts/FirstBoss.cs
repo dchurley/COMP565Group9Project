@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FirstBossScript : MonoBehaviour
@@ -12,7 +13,6 @@ public class FirstBossScript : MonoBehaviour
     public float attackTime = 1.0f;
     public int maxHealth = 10;
     public float projectileSpeed = 3.0f;
-    public int projectileCount = 7;
 
     int health;
     bool attacking;
@@ -69,7 +69,8 @@ public class FirstBossScript : MonoBehaviour
         if(coolDownTimer >= coolDownTime) {
 
             coolDownTimer = 0;
-            shoot();
+            setupAttack();
+            spawnAttack1();
 
         }
         
@@ -85,27 +86,50 @@ public class FirstBossScript : MonoBehaviour
                 alternate = tmp;
             }
         }
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            shoot();
-        }
     }
 
-    void shoot()
+    void setupAttack()
     {
         attacking = true;
         attackTimer = 0;
         Sprite tmp = gameObject.GetComponent<SpriteRenderer>().sprite;
         gameObject.GetComponent<SpriteRenderer>().sprite = alternate;
         alternate = tmp;
+    }
 
+
+
+    void spawnAttack2()
+    {
+        //attack to send a projectile straight at the player
 
 
         //get mouse postion on the screne
         var bossPos = gameObject.transform.position;
+        var playerPos = GameObject.Find("Player").transform.position;
 
+            //calculate the angle between the marker object and the center of the boss
+            var angle = new Vector2(bossPos.x, bossPos.y) - new Vector2(playerPos.x, playerPos.y);
+            //normalize and multiply (set the standard velocity)
+            angle.Normalize();
+        //fix it going backward for some reason
+        //make it faster since its just one projectile
+            angle *= projectileSpeed * -2;
+            //create the new projectile and set it's velocity
+            var go = GameObject.Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
+            go.GetComponent<Rigidbody2D>().velocity = angle;
+
+        
+    }
+
+    void spawnAttack3()
+    {
+
+        int projectileCount = 8;
+
+        //get mouse postion on the screne
+        var bossPos = gameObject.transform.position;
+        var attackMarker = gameObject.transform.GetChild(1);
 
         //for every i and j combo of -1, 0, 1
         //produce a projectile on the axis (not including 0, 0)
@@ -113,7 +137,35 @@ public class FirstBossScript : MonoBehaviour
         {
             //get the ith child (marker object)
             //get the position
-            var marker = gameObject.transform.GetChild(i).position;
+            var marker = attackMarker.GetChild(i).position;
+            //calculate the angle between the marker object and the center of the boss
+            var angle = new Vector2(bossPos.x, bossPos.y) - new Vector2(marker.x, marker.y);
+            //normalize and multiply (set the standard velocity)
+            angle.Normalize();
+            angle *= projectileSpeed;
+            //create the new projectile and set it's velocity
+            var go = GameObject.Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
+            go.GetComponent<Rigidbody2D>().velocity = angle;
+
+        }
+    }
+
+    void spawnAttack1()
+    {
+
+        int projectileCount = 7;
+
+        //get mouse postion on the screne
+        var bossPos = gameObject.transform.position;
+        var attackMarker = gameObject.transform.GetChild(0);
+
+        //for every i and j combo of -1, 0, 1
+        //produce a projectile on the axis (not including 0, 0)
+        for (int i = 0; i < projectileCount; i++)
+        {
+            //get the ith child (marker object)
+            //get the position
+            var marker = attackMarker.GetChild(i).position;
             //calculate the angle between the marker object and the center of the boss
             var angle = new Vector2(bossPos.x, bossPos.y) - new Vector2(marker.x, marker.y);
             //normalize and multiply (set the standard velocity)

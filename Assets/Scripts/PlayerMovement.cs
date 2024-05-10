@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float invulnTime = 1.0f;
     float invulnTimer;
+    bool invuln = false;
 
     void Start()
     {
@@ -64,9 +65,16 @@ public class PlayerMovement : MonoBehaviour
         {
             coolDownTimer += delta;
         }
-        if(invulnTimer < invulnTime)
+
+        if (invuln)
         {
             invulnTimer += delta;
+        }
+
+        if (invulnTimer >= invulnTime) {
+            invulnTimer = 0;
+            invuln = false;
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
 
         if (Input.GetKey(KeyCode.Mouse0))
@@ -107,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Targetable") || other.CompareTag("EnemyProjectile"))
         {
-            if (invulnTimer >= invulnTime)
+            if (!invuln)
             {
                 takeDamage();
             }
@@ -118,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.transform.tag.Equals("Targetable") || other.transform.tag.Equals("EnemyProjectile"))
         {
-            if(invulnTimer >= invulnTime)
+            if(!invuln)
             {
                 takeDamage();
             }
@@ -127,7 +135,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void takeDamage()
     {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         invulnTimer = 0;
+        invuln = true;
         var ph = health.GetComponent<PlayerHearts>();
         ph.takeDamage();
 
