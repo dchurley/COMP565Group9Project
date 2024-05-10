@@ -21,6 +21,9 @@ public class FirstBossScript : MonoBehaviour
     float phaseX;
     float phaseY;
 
+    private int damageTaken;
+    public GameObject data;
+
     float getNextXPos(float delta)
     {
         float twopi = 2.0f * Mathf.PI;
@@ -48,6 +51,7 @@ public class FirstBossScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damageTaken = data.GetComponent<mainBehavior>().SetDamage();
         health = maxHealth;
     }
 
@@ -184,14 +188,20 @@ public class FirstBossScript : MonoBehaviour
     {
         if(other.CompareTag("Projectile"))
         {
-            health--;
-            bossBar.GetComponent<BossBar>().scale = (float)health / (float)maxHealth;
+            TakeDamage();
         }
 
-        if(health == 0)
+        if(health <= 0)
         {
             Destroy(gameObject);
             FindObjectOfType<mainBehavior>().WinLevel();
         }
+    }
+
+    void TakeDamage()
+    {
+        health -= damageTaken;
+        Debug.Log(damageTaken);
+        bossBar.GetComponent<BossBar>().scale = (float)health / (float)maxHealth;
     }
 }

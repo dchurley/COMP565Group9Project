@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponID: 1
   cost: 150
-  damage: 7
+  damage: 5
   unlocked: 0
+  cooldown: 0

@@ -112,4 +112,21 @@ public class mainBehavior : MonoBehaviour, IDataPersistence
     {
         return weaponEquip;
     }
+
+    public int SetDamage()
+    {
+        switch (weaponEquip)
+        {
+            case 0:
+                return 7;
+            case 1:
+                return 20;
+            case 2:
+                return 8;
+            case 3:
+                return 20;
+        }
+
+        return 0;
+    }
 }
