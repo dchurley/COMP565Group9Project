@@ -671,6 +671,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1719687415}
     - target: {fileID: 783228102258275287, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
+      propertyPath: alternate
+      value: 
+      objectReference: {fileID: 21300000, guid: 22296f6f5ba084a4f9ee0d8222f49e27, type: 3}
+    - target: {fileID: 783228102258275287, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
       propertyPath: maxHealth
       value: 2000
       objectReference: {fileID: 0}
@@ -686,6 +690,10 @@ PrefabInstance:
       propertyPath: projectileSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2002788215940457390, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8a553364f36bda544a924388216d85cd, type: 3}
     - target: {fileID: 2252840720022017572, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
       propertyPath: m_Name
       value: First Boss

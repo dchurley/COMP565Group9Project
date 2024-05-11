@@ -13,6 +13,7 @@ public class FirstBossScript : MonoBehaviour
     public float attackTime = 1.0f;
     public int maxHealth = 10;
     public float projectileSpeed = 3.0f;
+    public int attackType = 1;
 
     int health;
     bool attacking;
@@ -74,8 +75,19 @@ public class FirstBossScript : MonoBehaviour
 
             coolDownTimer = 0;
             setupAttack();
-            spawnAttack1();
+            switch(attackType)
+            {
+                case 1:
+                    spawnAttack1();
+                    break;
+                case 2:
+                    spawnAttack2();
+                    break;
+                case 3:
+                    spawnAttack3();
+                    break;
 
+            }
         }
         
 
