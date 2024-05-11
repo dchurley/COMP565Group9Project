@@ -6889,7 +6889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965284627}
-  - component: {fileID: 965284626}
+  - component: {fileID: 965284628}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -6897,20 +6897,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &965284626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965284625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e73317b1a7eb6d2478e0d8b8ea528003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSource: {fileID: 1723106363}
-  sound: {fileID: 8300000, guid: 712f121343d75164c87b9913d11d19dd, type: 3}
 --- !u!4 &965284627
 Transform:
   m_ObjectHideFlags: 0
@@ -6927,6 +6913,22 @@ Transform:
   - {fileID: 1723106364}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &965284628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965284625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5fdf831f1ec7647a2223c043c127e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 1723106363}
+  volumeSlider: {fileID: 1760351314}
+  sound: {fileID: 8300000, guid: 712f121343d75164c87b9913d11d19dd, type: 3}
+  winMusic: {fileID: 8300000, guid: 10885c689f0d4dc49874f8b21f304582, type: 3}
 --- !u!1 &970882870
 GameObject:
   m_ObjectHideFlags: 0
@@ -11905,6 +11907,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4175975116410041945, guid: 60c9b7185c416d64c94b1a5fa5172931, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6290510440310583766, guid: 60c9b7185c416d64c94b1a5fa5172931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11950,6 +11956,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c9b7185c416d64c94b1a5fa5172931, type: 3}
+--- !u!114 &1760351314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4710114305272139362, guid: 60c9b7185c416d64c94b1a5fa5172931, type: 3}
+  m_PrefabInstance: {fileID: 1760351313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1765520191
 GameObject:
   m_ObjectHideFlags: 0

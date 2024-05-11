@@ -2339,6 +2339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 277632673}
+  volumeSlider: {fileID: 3894411044485450280}
   sound: {fileID: 8300000, guid: b42c8dec78b0a3243b736d703b7f08f4, type: 3}
   winMusic: {fileID: 8300000, guid: 977a366501e1e9046be3f03370e020de, type: 3}
 --- !u!4 &1207076002
@@ -3870,6 +3871,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4175975116410041945, guid: 60c9b7185c416d64c94b1a5fa5172931, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099387181502310160, guid: 60c9b7185c416d64c94b1a5fa5172931, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6290510440310583766, guid: 60c9b7185c416d64c94b1a5fa5172931, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3915,6 +3924,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c9b7185c416d64c94b1a5fa5172931, type: 3}
+--- !u!114 &3894411044485450280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4710114305272139362, guid: 60c9b7185c416d64c94b1a5fa5172931, type: 3}
+  m_PrefabInstance: {fileID: 3894411044485450279}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4370689092157523195
 PrefabInstance:
   m_ObjectHideFlags: 0
