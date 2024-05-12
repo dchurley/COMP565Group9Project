@@ -671,6 +671,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1719687415}
     - target: {fileID: 783228102258275287, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
+      propertyPath: activate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 783228102258275287, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
       propertyPath: alternate
       value: 
       objectReference: {fileID: 21300000, guid: 4f8713b14e31d16458e4523989f88ddd, type: 3}
@@ -683,6 +687,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1394926419}
     - target: {fileID: 783228102258275287, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
+      propertyPath: attackTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 783228102258275287, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
       propertyPath: attackType
       value: 4
       objectReference: {fileID: 0}
@@ -691,8 +699,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4500578564016326740, guid: 1aaa0696da138124fb61747b89a5afc7, type: 3}
     - target: {fileID: 783228102258275287, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
+      propertyPath: coolDownTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 783228102258275287, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
       propertyPath: projectileSpeed
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2002788215940457390, guid: 7fd553e8823bea649bf2c796ba333412, type: 3}
       propertyPath: m_Sprite
@@ -1259,7 +1271,7 @@ GameObject:
   - component: {fileID: 457280985}
   - component: {fileID: 457280986}
   m_Layer: 0
-  m_Name: 8-bit-background-mjt9cbgeu2f25tu9
+  m_Name: Level 3 Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
