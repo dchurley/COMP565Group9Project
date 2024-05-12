@@ -86,7 +86,14 @@ public class FirstBossScript : MonoBehaviour
                 case 3:
                     spawnAttack3();
                     break;
-
+                case 4:
+                    spawnAttack1();
+                    spawnAttack2();
+                    break;
+                case 5:
+                    spawnAttack3();
+                    spawnAttack2();
+                    break;
             }
         }
         
