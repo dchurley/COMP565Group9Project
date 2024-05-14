@@ -3729,6 +3729,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4210042829442250399, guid: 39b32bd7ae22908479bfa4214d4019ab, type: 3}
+      propertyPath: m_Size.x
+      value: 0.0876
+      objectReference: {fileID: 0}
     - target: {fileID: 4858071835378136565, guid: 39b32bd7ae22908479bfa4214d4019ab, type: 3}
       propertyPath: health
       value: 
