@@ -7,12 +7,7 @@ public class ShopMovement : MonoBehaviour
     public float speed = 3f;
     public Animator animator;
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         var velocity = new Vector2(0, 0);
