@@ -7,10 +7,14 @@ public class PlayerShooting : MonoBehaviour
     public GameObject playerProjectile;
     public GameObject data;
 
+    public GameObject shotgunProjectile;
+    public GameObject smgProjectile;
+    public GameObject rifleProjectile;
+
     private int equipped;
     private float coolDownTime = 0.3f;
     float coolDownTimer;
-    private Vector3 scaleChange;
+    private float scaleChange;
     private int projectileSpeed;
 
     // Start is called before the first frame update
@@ -22,18 +26,22 @@ public class PlayerShooting : MonoBehaviour
             case 0:
                 coolDownTime = 0.3f;
                 projectileSpeed = 5;
+                scaleChange = 1.0f;
                 break;
             case 1:
                 coolDownTime = 0.9f;
                 projectileSpeed = 6;
+                scaleChange = 0.8f;
                 break;
             case 2:
                 coolDownTime = 0.15f;
                 projectileSpeed = 9;
+                scaleChange = 0.5f;
                 break;
             case 3:
                 coolDownTime = 0.25f;
                 projectileSpeed = 7;
+                scaleChange = 1.2f;
                 break;
         }
     }
@@ -74,7 +82,12 @@ public class PlayerShooting : MonoBehaviour
         angle.Normalize();
         angle *= projectileSpeed;
 
+        //create object
         var go = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
+
+        //rotate sprite
+        float degree = Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg;
+        go.transform.rotation = Quaternion.AngleAxis(degree, Vector3.forward);
 
         //set velocity of projectile
         go.GetComponent<Rigidbody2D>().velocity = angle;
@@ -103,22 +116,35 @@ public class PlayerShooting : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, angleInDegrees);
         Vector2 rotatedVector1 = rotation * angle;
 
-        angleInDegrees = -20f;
+        angleInDegrees = -15f;
         rotation = Quaternion.Euler(0, 0, angleInDegrees);
         Vector2 rotatedVector2 = rotation * angle;
 
-        var go = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
-        var go1 = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
-        var go2 = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
+        var go = GameObject.Instantiate(shotgunProjectile, playerPos, Quaternion.identity);
+        var go1 = GameObject.Instantiate(shotgunProjectile, playerPos, Quaternion.identity);
+        var go2 = GameObject.Instantiate(shotgunProjectile, playerPos, Quaternion.identity);
+
 
         //set velocity of projectile
         go.GetComponent<Rigidbody2D>().velocity = angle;
         go1.GetComponent<Rigidbody2D>().velocity = rotatedVector1;
         go2.GetComponent<Rigidbody2D>().velocity = rotatedVector2;
-        scaleChange = new Vector3(0.35f, 0.35f, 0.35f);
-        go.transform.localScale = scaleChange;
-        go1.transform.localScale = scaleChange;
-        go2.transform.localScale = scaleChange;
+
+        //rotate sprites
+        float degree = Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg;
+        go.transform.rotation = Quaternion.AngleAxis(degree, Vector3.forward);
+        //rotate sprite 1
+        float degree1 = Mathf.Atan2(rotatedVector1.y, rotatedVector1.x) * Mathf.Rad2Deg;
+        go1.transform.rotation = Quaternion.AngleAxis(degree1, Vector3.forward);
+        //rotate sprite 2
+        float degree2 = Mathf.Atan2(rotatedVector2.y, rotatedVector2.x) * Mathf.Rad2Deg;
+        go2.transform.rotation = Quaternion.AngleAxis(degree2, Vector3.forward);
+
+        //scaleChange = new Vector3(0.35f, 0.35f, 0.35f);
+        var newScale = go.transform.localScale * scaleChange;
+        go.transform.localScale = newScale;
+        go1.transform.localScale = newScale;
+        go2.transform.localScale = newScale;
     }
 
     private void SMGShoot()
@@ -139,12 +165,21 @@ public class PlayerShooting : MonoBehaviour
         angle.Normalize();
         angle *= projectileSpeed;
 
-        var go = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
+        var go = GameObject.Instantiate(smgProjectile, playerPos, Quaternion.identity);
+
+
+        //rotate sprites
+        float degree = Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg;
+        go.transform.rotation = Quaternion.AngleAxis(degree, Vector3.forward);
 
         //set velocity of projectile
         go.GetComponent<Rigidbody2D>().velocity = angle;
-        scaleChange = new Vector3(0.18f, 0.18f, 0.18f);
-        go.transform.localScale = scaleChange;
+
+
+
+        //scaleChange = new Vector3(0.18f, 0.18f, 0.18f);
+        var newScale = go.transform.localScale * scaleChange;
+        go.transform.localScale = newScale;
     }
 
     private void RifleShoot()
@@ -165,12 +200,17 @@ public class PlayerShooting : MonoBehaviour
         angle.Normalize();
         angle *= projectileSpeed;
 
-        var go = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
+        var go = GameObject.Instantiate(rifleProjectile, playerPos, Quaternion.identity);
+
+        //rotate sprites
+        float degree = Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg;
+        go.transform.rotation = Quaternion.AngleAxis(degree, Vector3.forward);
 
         //set velocity of projectile
         go.GetComponent<Rigidbody2D>().velocity = angle;
-        scaleChange = new Vector3(0.225f, 0.225f, 0.225f);
-        go.transform.localScale = scaleChange;
+        //scaleChange = new Vector3(0.225f, 0.225f, 0.225f);
+        var newScale = go.transform.localScale * scaleChange;
+        go.transform.localScale = newScale;
     }
 
     private void shoot()

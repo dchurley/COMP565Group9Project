@@ -16,9 +16,13 @@ public class PlayerMovement : MonoBehaviour
     float invulnTimer;
     bool invuln = false;
 
+    private float playerSizeX;
+    private float playerSizeY;
+
     void Start()
     {
-        
+        playerSizeX = GetComponent<BoxCollider2D>().size.x;
+        playerSizeY = GetComponent<BoxCollider2D>().size.y;
     }
 
     // Update is called once per frame
@@ -60,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
 
         GetComponent<Rigidbody2D>().velocity = velocity;
 
+        clampPlayerMovement();
+
         float delta = Time.deltaTime;
         if(coolDownTimer < coolDownTime)
         {
@@ -77,38 +83,25 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
 
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            if(coolDownTimer >= coolDownTime)
-            {
-                //shoot();
-            }
-        }
-
     }
 
-    private void shoot()
+    void clampPlayerMovement()
     {
-        coolDownTimer = 0;
-        //get mouse postion on the screne
-        var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var mainCamera = Camera.main;
 
-        //get mouse x and y
-        float mx = mouseWorldPos.x;
-        float my = mouseWorldPos.y;
+        // Get the object's current position
+        Vector3 currentPosition = transform.position;
 
-        //get player x and y
-        var playerPos = GetComponent<Rigidbody2D>().position;
+        // Get the world coordinates of the screen borders
+        Vector3 leftBottom = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        Vector3 rightTop = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, 0));
 
-        var angle = new Vector2(mx, my) - playerPos;
-        //normalize so that the dist between player and mouse isnt considered
-        angle.Normalize();
-        angle *= 5;
+        // Calculate the clamped position
+        currentPosition.x = Mathf.Clamp(currentPosition.x, leftBottom.x + playerSizeX, rightTop.x - playerSizeX);
+        currentPosition.y = Mathf.Clamp(currentPosition.y, leftBottom.y + playerSizeY, rightTop.y - playerSizeY);
 
-        var go = GameObject.Instantiate(playerProjectile, playerPos, Quaternion.identity);
-
-        //set velocity of projectile
-        go.GetComponent<Rigidbody2D>().velocity = angle;
+        // Update the object's position
+        transform.position = currentPosition;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
