@@ -9,11 +9,6 @@ public class BossBar : MonoBehaviour
     public float scale = 1.0f;
     public Image i;
 
-    void Start()
-    {
-
-    }
-
     void resizeBar()
     {
         i.fillAmount = scale;

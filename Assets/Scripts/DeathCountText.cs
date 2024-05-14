@@ -25,16 +25,6 @@ public class DeathCountText : MonoBehaviour, IDataPersistence
         data.deathCount = this.deathCount;
     }
 
-    private void Start()
-    {
-    //    GameEventsManager.instance.onPlayerDeath += OnPlayerDeath;
-    }
-
-    private void OnDestroy()
-    {
-    //    GameEventsManager.instance.onPlayerDeath -= OnPlayerDeath;
-    }
-
     public void OnPlayerDeath()
     {
         deathCount++;
