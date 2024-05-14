@@ -36,7 +36,7 @@ public class PlayerShooting : MonoBehaviour
             case 2:
                 coolDownTime = 0.15f;
                 projectileSpeed = 9;
-                scaleChange = 0.5f;
+                scaleChange = 0.6f;
                 break;
             case 3:
                 coolDownTime = 0.25f;

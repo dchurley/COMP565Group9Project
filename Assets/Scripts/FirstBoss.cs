@@ -137,7 +137,7 @@ public class FirstBossScript : MonoBehaviour
             angle.Normalize();
         //fix it going backward for some reason
         //make it faster since its just one projectile
-            angle *= projectileSpeed * -2;
+            angle *= projectileSpeed * -1.2f;
             //create the new projectile and set it's velocity
             var go = GameObject.Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
             go.GetComponent<Rigidbody2D>().velocity = angle;
